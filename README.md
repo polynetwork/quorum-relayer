@@ -27,8 +27,8 @@ configuration as follow:
     "WalletPwd":"pwd" //password
   },
   "QuorumConfig":{
-    "SideChainId": 101, // palette side chain ID in poly network
-    "RestURL":"http://palette:port", // your palette node rpc url 
+    "SideChainId": 101, // quorum side chain ID in poly network
+    "RestURL":"http://yourhost:port", // your quorum node rpc url 
     "ECCMContractAddress":"ethereum_cross_chain_contract", 
     "ECCDContractAddress":"ethereum_cross_chain_data_contract",
     "KeyStorePath": "./keystore", // path to store your ethereum wallet
