@@ -63,7 +63,7 @@ There are serveral steps before running relayer:
 * deploy ccmp contract on quorum chain.
 * deploy lock proxy contract on quorum chain.
 * bind proxy to destination proxy.
-* bind asset to destination proxy.
+* bind asset to destination asset.
 
 Now, you can start relayer as follow: 
 
