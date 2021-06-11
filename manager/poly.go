@@ -68,7 +68,6 @@ type PolyManager struct {
 	exitChan chan int
 }
 
-// 从poly到quorum
 func NewPolyManager(
 	srvCfg *config.ServiceConfig,
 	polyForceStartBlockHeight uint32,

@@ -53,13 +53,13 @@ type pltEpoch struct {
 }
 
 // QuorumManager quorum->poly:
-// 1.需要使用polysdk记录/获取 poly/native/services/quorum(记录来自quorum同步的区块头信息) 的同步高度.
-// 2.也需要一个quorum client记录/获取quorum solidity contracts相关内容/接口.
-// 3.在向poly中继链提交header和proof时需要poly 中继链上的账户signer 进行签名.
-// 4.同步的过程，往往是批量处理，而不是逐个区块进行同步或者提交事件等，所以需要有两个slice记录header和crossTx.
-// 5.为保证不落下每个区块我们需要一个存储在中继链headerSync合约上的 currentHeight标志记录当前处理到哪个块了，
-// 如果出现分叉等现象还需要一个forceHeight重置区块高度.
-// 6.需要一个cross chain manager从quorum链上solidity合约获取跨链事件
+// 1. record quorum height in poly
+// 2. fetch quorum header and proof and send to poly chain
+// 3. The synchronization process is often batch processing, rather than block-by-block synchronization or submitting
+// events, etc., so two slices are required to record the header and crossTx.
+// 4. To ensure that each block is not dropped, we need a currentHeight mark stored in the headerSync contract
+// of the relay chain to record which block is currently processed.
+// 5. A cross chain manager is required to obtain cross-chain events from the solidity contract on the quorum chain
 type QuorumManager struct {
 	config *config.ServiceConfig
 	db     *db.BoltDB

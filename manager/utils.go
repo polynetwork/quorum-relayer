@@ -299,29 +299,6 @@ func leftPadBytes(slice []byte, l int) []byte {
 	return padded
 }
 
-//
-//// auth implement ecrecover to get proposer
-//func ecrecoverProposer(header *types.Header, istanbulExtra *types.IstanbulExtra) (sccm.Address, error) {
-//	data := sigHash(header).Bytes()
-//	seal := istanbulExtra.Seal
-//	return istanbul.GetSignatureAddress(data, seal)
-//}
-//
-//func ecrecoverCommitter(header *types.Header, committedSeal []byte) (sccm.Address, error) {
-//	hash := header.Hash()
-//	proposalSeal := istanbulCore.PrepareCommittedSeal(hash)
-//	return istanbul.GetSignatureAddress(proposalSeal, committedSeal)
-//}
-//
-//func sigHash(header *types.Header) (hash sccm.Hash) {
-//	hasher := sha3.NewLegacyKeccak256()
-//
-//	// Clean seal is required for calculating proposer seal.
-//	rlp.Encode(hasher, types.IstanbulFilteredHeader(header, false))
-//	hasher.Sum(hash[:0])
-//	return hash
-//}
-
 func sortAddrList(list []sccm.Address) {
 	sort.Slice(list, func(i, j int) bool {
 		return list[i].Hex() < list[j].Hex()
